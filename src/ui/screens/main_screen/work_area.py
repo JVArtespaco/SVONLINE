@@ -1,15 +1,16 @@
-from __future__ import annotations
-from customtkinter import CTkFrame, CTkButton
+from customtkinter import CTkFrame, CTkButton, BOTH, TOP
 
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from src.ui.screens.main_screen.main_screen import MainScreen
-    from src.ui.frames import BaseWorkAreaFrame
+    from src.ui.components.frames import BaseWorkAreaFrame
+
 
 class WorkArea(CTkFrame):
     def __init__(self, parent: MainScreen, *args, **kwargs):
         super().__init__(parent, *args, **kwargs)
+        self.parent = parent
         self.configure(corner_radius=0)
         self.parent: MainScreen = parent
         self.close_btn: None | CTkButton = None
@@ -39,4 +40,4 @@ class WorkArea(CTkFrame):
         if self.current_frame:
             self.current_frame.destroy()
         self.current_frame = frame
-        self.current_frame.pack()
+        self.current_frame.pack(side=TOP, fill=BOTH, expand=True, padx=0, pady=0)

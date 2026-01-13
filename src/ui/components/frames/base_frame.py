@@ -3,7 +3,7 @@ from customtkinter import CTkFrame, CTkLabel
 from typing import TYPE_CHECKING
 from src.core.exceptions import EmptyValueError, NoneError
 from src.ui.utils import apply_recursive, ACTIONS
-from src.core.enums import Font
+from src.core.enums import Font, Colors
 
 
 if TYPE_CHECKING:
@@ -21,7 +21,7 @@ class BaseFrame(CTkFrame):
         if not value:
             raise EmptyValueError("O título nao pode ser uma string vazia")
         else:
-            self._title: CTkLabel = CTkLabel(self, text=value, fg_color="white",
+            self._title: CTkLabel = CTkLabel(self, text=value, fg_color=Colors.WHITE.value,
                                              font=(Font.ARIAL.value, 20, Font.BOLD.value))
             self._title.pack(padx=10)
             self._title.lift()

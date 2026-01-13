@@ -50,22 +50,10 @@ def _valid_value(valid) -> bool | None:
     return valid not in ("", None)
 
 
-def verify_fields(values) -> int:
-    tot = 0
-    for value in list(values.values()):
-        if value == "":
-            tot += 1
-    return tot
 
 
-def validate_select(var) -> bool:
-    if var:
-        if var.get() == "Selecionar":
-            return False
-        else:
-            return True
-    else:
-        return True
+
+
 
 
 def _return_box(value: str) -> str:
@@ -90,5 +78,5 @@ def extract_valid_filters(data: dict) -> dict[Any, Any]:
     return {column: value for column, value in data.items() if _valid_value(value)}
 
 
-__all__ = ["validate_currency", "validate_digits", "validate_select",
-           "verify_box", "extract_valid_filters", "verify_fields"]
+__all__ = ["validate_currency", "validate_digits",
+           "verify_box", "extract_valid_filters"]

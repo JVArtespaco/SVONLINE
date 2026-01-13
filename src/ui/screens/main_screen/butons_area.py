@@ -12,7 +12,7 @@ class ButtonsArea(CTkFrame):
         super().__init__(parent, *args, **kwargs)
         self.parent: MainScreen = parent
         self.add_button = AddButton(self)
-        self.add_button.grid(row=0, column=0, padx=5, pady=2)
+        self.add_button.grid(row=0, column=0, padx=(10, 5), pady=10)
 
     def enable_all_buttons(self):
         children: list = self.winfo_children()
