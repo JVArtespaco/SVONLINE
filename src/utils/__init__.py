@@ -3,8 +3,6 @@ from .utils_sql import *
 from .type_convertion_utils import *
 
 __all__ = ["extract_valid_filters",
-           "validate_currency",
-           "validate_digits",
            "verify_box",
            "montar_select",
            "parse_float",

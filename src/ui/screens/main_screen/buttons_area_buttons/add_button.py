@@ -1,6 +1,7 @@
 from src.ui.components.buttons import ButtonAreaBaseButton
 from typing import TYPE_CHECKING
-from src.core.enums import Font, BootstrapColors
+from src.core.enums import Font, BootstrapColors, UtilsEnumEn
+
 
 if TYPE_CHECKING:
     from src.ui.screens.main_screen.butons_area import ButtonsArea
@@ -22,5 +23,5 @@ class AddButton(ButtonAreaBaseButton):
     def add(self):
         if self.parent.parent.work_area.current_frame:
             self.parent.parent.work_area.current_frame.show_frame()
-
+            self.parent.parent.work_area.current_frame.type_button = UtilsEnumEn.ADD.value
 

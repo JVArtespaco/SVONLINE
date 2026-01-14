@@ -20,6 +20,6 @@ class TopBar(CTkFrame):
                                         text_color=Colors.BLACK.value,
                                         button_color=Colors.VERY_LIGHT_GRAY.value,
                                         button_hover_color=Colors.LIGHT_GRAY.value)
-        self.product_menu.grid(row=0, column=0, padx=5, pady=2, stick=W)
+        self.product_menu.grid(row=0, column=0, padx=5, pady=(0, 10), stick=W)
 
 

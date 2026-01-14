@@ -3,7 +3,6 @@ from src.ui.utils import (apply_recursive,
                           ACTIONS,
                           change_edges_color,
                           )
-from src.core.utils import validate_select, verify_fields
 from abc import abstractmethod, ABC
 from src.ui.components.top_level import CTkAlert
 from src.core.validators import FormValidator
@@ -32,7 +31,7 @@ class FormArea(CTkFrame, ABC):
     def return_fields_values(self) -> dict[str, str]:
         pass
 
-    def validate_all_select(self) -> bool:
+    def _validate_all_select(self) -> bool:
         if self.all_select_vars:
             for c in self.all_select_vars:
                 if not FormValidator.validate_select(c.get()):
@@ -42,11 +41,12 @@ class FormArea(CTkFrame, ABC):
 
     def validate_and_change_border_colors(self) -> bool:
         try:
-            if not FormValidator(self.return_fields_values()).validate_fields(self.validate_all_select):
+            if not FormValidator(self.return_fields_values()).validate_fields(self._validate_all_select):
                 self.change_edges()
                 return True
             else:
                 raise
         except ValidateError:
+            self.change_edges()
             CTkAlert(self, str(ValidateError))
             return False

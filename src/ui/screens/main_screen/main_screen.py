@@ -13,10 +13,10 @@ class MainScreen(CTkFrame):
         self._create_layout()
 
     def _create_layout(self) -> None:
-        self.button_area = ButtonsArea(self, height=50, fg_color=Colors.DARK_BLUE.value, corner_radius=0)
+        self.button_area = ButtonsArea(self, height=60, fg_color=Colors.DARK_BLUE.value, corner_radius=0)
         self.button_area.pack(side=TOP, fill=X)
 
-        self.top_bar = TopBar(self, height=50, fg_color=Colors.DARK_BLUE.value, corner_radius=0)
+        self.top_bar = TopBar(self, height=60, fg_color=Colors.DARK_BLUE.value, corner_radius=0)
         self.top_bar.pack(side=TOP, fill=X)
 
         self.work_area = WorkArea(self)

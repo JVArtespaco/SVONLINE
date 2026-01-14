@@ -15,6 +15,7 @@ class BaseWorkAreaFrame(BaseFrame):
         self.frame: BaseFrame = BaseFrame(self,
                                           fg_color=Colors.WHITE.value,
                                           corner_radius=0)
+        self.type_button: None | str = None
         self.configure(fg_color=Colors.WHITE.value)
 
     def show_frame(self):

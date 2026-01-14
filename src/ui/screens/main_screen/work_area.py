@@ -19,6 +19,7 @@ class WorkArea(CTkFrame):
     def clear_main(self) -> None:
         for widget in self.winfo_children():
             widget.destroy()
+        self.current_frame = None
 
     def create_close_button(self, callback) -> None:
         self.close_btn = CTkButton(
